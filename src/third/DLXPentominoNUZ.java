@@ -3,11 +3,11 @@ package third;
 import java.util.*;
 
 public class DLXPentominoNUZ {
-  int y = 0;
+  int y;
   int n;
   int count = 0;
-  ArrayList<Integer> xlist = new ArrayList<Integer>();
-  ArrayList<Integer[]> slist = new ArrayList<Integer[]>();
+  ArrayList<Integer> xlist = new ArrayList<>();
+  ArrayList<Integer[]> slist = new ArrayList<>();
   public DLXPentominoNUZ(int n){
     this.n = n;
     y = 5 * n;
@@ -17,11 +17,14 @@ public class DLXPentominoNUZ {
     for(int i = 0; i < 8; i++){
       for(int j = 0; j < y; j++) {
         slist.add(allNPos(j));
-        slist.add(allUPos(j));
-        slist.add(allZPos(j));
+     //   if(i < 4) {
+   //       slist.add(allUPos(j));
+ //         slist.add(allZPos(j));
+       // }
         count++;
       }
     }
+    slist.removeAll(Arrays.asList("", null));
     for (Integer i[] : slist) {
       System.out.println(Arrays.toString(i));
     }
@@ -30,58 +33,109 @@ public class DLXPentominoNUZ {
   public Integer[] allNPos(int x){
     Integer n[] = new Integer[5];
     if(count < y){
-      n[0] = x;
-      n[1] = x + this.n;
-      n[2] = x + this.n + 1;
-      n[3] = x + (this.n * 2) + 1;
-      n[4] = x + (this.n * 3) + 1;
+      if((this.n) - 1 == x || (this.n * 2) - 1 == x){
+        return null;
+      }
+      else {
+        n[0] = x;
+        n[1] = x + this.n;
+        n[2] = x + this.n + 1;
+        n[3] = x + (this.n * 2) + 1;
+        n[4] = x + (this.n * 3) + 1;
+      }
     }
     else  if(count < y * 2){
-      n[0] = x + 1;
-      n[1] = x + this.n;
-      n[2] = x + this.n + 1;
-      n[3] = x + (this.n * 2);
-      n[4] = x + (this.n * 3);
+      if(0 == x || (this.n) == x || (this.n * 2) == x){
+        return null;
+      }
+      else {
+        n[0] = x;
+        n[1] = x + this.n;
+        n[2] = x + this.n - 1;
+        n[3] = x + (this.n * 2) - 1;
+        n[4] = x + (this.n * 3) - 1;
+      }
     }
     else  if(count < y * 3){
-      n[0] = x + 2;
-      n[1] = x + 3;
-      n[2] = x + this.n;
-      n[3] = x + this.n + 1;
-      n[4] = x + this.n + 2;
+      if(x <= 1 || (this.n) - 1 == x || (this.n * 2) - 1 == x || (this.n * 3) - 1 == x || (this.n * 4) - 1 == x || (this.n) == x ||
+              (this.n) + 1 == x || (this.n * 2) == x || (this.n * 2) + 1 == x || (this.n * 3) == x || (this.n * 3) + 1 == x){
+        return null;
+      }
+      else {
+        n[0] = x;
+        n[1] = x + 1;
+        n[2] = x + this.n - 2;
+        n[3] = x + this.n - 1;
+        n[4] = x + this.n;
+      }
     }
     else  if(count < y * 4){
-      n[0] = x;
-      n[1] = x + 1;
-      n[2] = x + 2;
-      n[3] = x + this.n + 2;
-      n[4] = x + this.n + 3;
+      if(x >= (this.n) - 3 && x <= (this.n) - 1 || x >= (this.n * 2) - 3 && x <= (this.n * 2) - 1 ||
+              x >= (this.n * 3) - 3 && x <= (this.n * 3) - 1 || x >= (this.n * 4) - 3 && x <= (this.n * 4) - 1){
+        return null;
+      }
+      else {
+        n[0] = x;
+        n[1] = x + 1;
+        n[2] = x + 2;
+        n[3] = x + this.n + 2;
+        n[4] = x + this.n + 3;
+      }
     }
     else  if(count < y * 5){
-      n[0] = x;
-      n[1] = x + 1;
-      n[2] = x + this.n + 1;
-      n[3] = x + this.n + 2;
-      n[4] = x + this.n + 3;
+      if(x >= (this.n) - 3 && x <= (this.n) - 1 || x >= (this.n * 2) - 3 && x <= (this.n * 2) - 1 ||
+              x >= (this.n * 3) - 3 && x <= (this.n * 3) - 1 || x >= (this.n * 4) - 3 && x <= (this.n * 4) - 1){
+        return null;
+      }
+      else {
+        n[0] = x;
+        n[1] = x + 1;
+        n[2] = x + this.n + 1;
+        n[3] = x + this.n + 2;
+        n[4] = x + this.n + 3;
+      }
     }
     else  if(count < y * 6){
-      if(count < 1) {
-        n[0] = x + 1;
-        n[1] = x + 2;
-        n[2] = x + 3;
-        n[3] = x + this.n;
-        n[4] = x + this.n + 1;
+      if(x == 0 || x >= (this.n) - 2 && x <= (this.n) - 1 || x == (this.n) || x >= (this.n * 2) - 2 && x <= (this.n * 2) - 1 ||
+              x == (this.n * 2) || x >= (this.n * 3) - 2 && x <= (this.n * 3) - 1 || x == (this.n * 3) || x >= (this.n * 4) - 2 && x <= (this.n * 4) - 1){
+        return null;
+      }
+      else {
+        n[0] = x;
+        n[1] = x + 1;
+        n[2] = x + 2;
+        n[3] = x + this.n - 1;
+        n[4] = x + this.n;
       }
     }
     else  if(count < y * 7){
-
+      if(0 == x || (this.n) == x || (this.n * 2) == x){
+        return null;
+      }
+      else {
+        n[0] = x;
+        n[1] = x + this.n;
+        n[2] = x + (this.n * 2);
+        n[3] = x + (this.n * 2) - 1;
+        n[4] = x + (this.n * 3) - 1;
+      }
     }
     else  if(count < y * 8){
-
+      if((this.n) - 1 == x){
+        return null;
+      }
+      else {
+        n[0] = x;
+        n[1] = x + this.n;
+        n[2] = x + (this.n * 2);
+        n[3] = x + (this.n * 2) + 1;
+        n[4] = x + (this.n * 3) + 1;
+      }
     }
-
-
-      return n;
+    for(int i = 0; i < 5; i++){
+      if(n[i] >= y) return null;
+    }
+    return n;
   }
 
   public Integer[] allUPos(int x){
@@ -97,9 +151,9 @@ public class DLXPentominoNUZ {
   public static void main(String[] arg) {
     //Variablen deklarieren
     int n = 0;
-    boolean tryok = true;
+    boolean tryok;
     Scanner sc = new Scanner(System.in);    //Scanner implementieren
-    System.out.println("\nBitte Ganzzahl größer gleich 0 für n eingeben!");
+    System.out.println("\nBitte Ganzzahl >= 0 eingeben!");
     do {
       try {
         n = sc.nextInt();   //Wert für n einlesen
@@ -108,7 +162,7 @@ public class DLXPentominoNUZ {
           Exception e) {     // Falls keine ganze Zahl sondern etwas anderes eingegeben wird,
         tryok = false;            // soll die Exception abgefangen und eine erneute Eingabe gefordert werden.
         String s = sc.next();
-        System.out.println("\nFehler!!! Bitte Ganzzahl größer gleich 0 für n eingeben!");
+        System.out.println("\nFehler!!! Bitte Ganzzahl >= 0 eingeben!");
       }
     } while (!tryok);
     new DLXPentominoNUZ(n);
