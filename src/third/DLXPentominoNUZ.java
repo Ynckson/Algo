@@ -16,11 +16,11 @@ public class DLXPentominoNUZ {
     }
     for(int i = 0; i < 8; i++){
       for(int j = 0; j < y; j++) {
-        slist.add(allNPos(j));
-     //   if(i < 4) {
-   //       slist.add(allUPos(j));
+//        slist.add(allNPos(j));
+        if(i < 4) {
+          slist.add(allUPos(j));
  //         slist.add(allZPos(j));
-       // }
+        }
         count++;
       }
     }
@@ -140,11 +140,117 @@ public class DLXPentominoNUZ {
 
   public Integer[] allUPos(int x){
     Integer u[] = new Integer[5];
+    if(count < y){
+      if((this.n) - 1 == x || (this.n * 2) - 1 == x || (this.n * 3) - 1 == x || (this.n * 4) - 1 == x ||
+          (this.n) - 2 == x || (this.n * 2) - 2 == x || (this.n * 3) - 2 == x || (this.n * 4) - 2 == x ){
+        return null;
+      }
+      else {
+        u[0] = x;
+        u[1] = x + this.n;
+        u[2] = x + this.n + 1;
+        u[3] = x + this.n + 2;
+        u[4] = x + 2;
+      }
+    }
+    else  if(count < y * 2){
+      if(0 == x || (this.n) == x || (this.n * 2) == x){
+        return null;
+      }
+      else {
+        u[0] = x;
+        u[1] = x - 1;
+        u[2] = x + this.n - 1;
+        u[3] = x + (this.n * 2) - 1;
+        u[4] = x + (this.n * 2);
+      }
+    }
+    else  if(count < y * 3){
+      if((this.n) - 1 == x || (this.n * 2) - 1 == x || (this.n * 3) - 1 == x || (this.n * 4) - 1 == x ||
+          (this.n) - 2 == x || (this.n * 2) - 2 == x || (this.n * 3) - 2 == x || (this.n * 4) - 2 == x ){
+        return null;
+      }
+      else {
+        u[0] = x;
+        u[1] = x + 1;
+        u[2] = x + 2;
+        u[3] = x + this.n;
+        u[4] = x + this.n + 2;
+      }
+    }
+    else  if(count < y * 4){
+      if((this.n) - 1 == x || (this.n * 2) - 1 == x || (this.n * 3) - 1 == x || (this.n * 4) - 1 == x){
+        return null;
+      }
+      else {
+        u[0] = x;
+        u[1] = x + 1;
+        u[2] = x + this.n + 1;
+        u[3] = x + (this.n * 2) + 1;
+        u[4] = x + (this.n * 2);
+      }
+    }
+    for(int i = 0; i < 5; i++){
+      if(u[i] >= y) return null;
+    }
     return u;
   }
 
   public Integer[] allZPos(int x){
     Integer z[] = new Integer[5];
+    if(count < y){
+      if((this.n) - 1 == x || (this.n * 2) - 1 == x || (this.n * 3) - 1 == x || (this.n * 4) - 1 == x ||
+          (this.n) - 2 == x || (this.n * 2) - 2 == x || (this.n * 3) - 2 == x || (this.n * 4) - 2 == x ){
+        return null;
+      }
+      else {
+        z[0] = x;
+        z[1] = x + 1;
+        z[2] = x + this.n + 1;
+        z[3] = x + (this.n * 2) + 1;
+        z[4] = x + (this.n * 2);
+      }
+    }
+    else  if(count < y * 2){
+      if(0 == x || (this.n) == x || (this.n * 2) == x){
+        return null;
+      }
+      else {
+        z[0] = x;
+        z[1] = x + 1;
+        z[2] = x + this.n + 1;
+        z[3] = x + (this.n * 2) + 1;
+        z[4] = x + (this.n * 2);
+      }
+    }
+    else  if(count < y * 3){
+      if((this.n) - 1 == x || (this.n * 2) - 1 == x || (this.n * 3) - 1 == x || (this.n * 4) - 1 == x ||
+          (this.n) - 2 == x || (this.n * 2) - 2 == x || (this.n * 3) - 2 == x || (this.n * 4) - 2 == x ){
+        return null;
+      }
+      else {
+        z[0] = x;
+        z[1] = x + 1;
+        z[2] = x + this.n + 1;
+        z[3] = x + (this.n * 2) + 1;
+        z[4] = x + (this.n * 2);
+      }
+    }
+    else  if(count < y * 4){
+      if((this.n) - 1 == x || (this.n * 2) - 1 == x || (this.n * 3) - 1 == x || (this.n * 4) - 1 == x){
+        return null;
+      }
+      else {
+        z[0] = x;
+        z[1] = x + 1;
+        z[2] = x + this.n + 1;
+        z[3] = x + (this.n * 2) + 1;
+        z[4] = x + (this.n * 2);
+      }
+    }
+    for(int i = 0; i < 5; i++){
+      if(z[i] >= y) return null;
+    }
     return z;
   }
 
