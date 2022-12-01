@@ -3,6 +3,8 @@ package third;
 import java.util.*;
 
 public class DLXPentominoNUZ {
+  static int cnt;
+  static DLXNode h;
   int y;
   int n;
   int count = 0;
@@ -11,23 +13,27 @@ public class DLXPentominoNUZ {
   public DLXPentominoNUZ(int n){
     this.n = n;
     y = 5 * n;
-    for(int i = 0; i < y; i++){
-      xlist.add(i);
-    }
-    for(int i = 0; i < 8; i++){
-      for(int j = 0; j < y; j++) {
-//        slist.add(allNPos(j));
-        if(i < 4) {
-          slist.add(allUPos(j));
- //         slist.add(allZPos(j));
+    if(n > 5) {
+      for (int i = 0; i < y; i++) {
+        xlist.add(i);
+      }
+      for (int i = 0; i < 8; i++) {
+        for (int j = 0; j < y; j++) {
+          slist.add(allNPos(j));
+          if (i < 4) {
+            slist.add(allUPos(j));
+            slist.add(allZPos(j));
+          }
+          count++;
         }
-        count++;
       }
     }
     slist.removeAll(Arrays.asList("", null));
     for (Integer i[] : slist) {
       System.out.println(Arrays.toString(i));
     }
+    int s = slist.size();
+    System.out.println(s);
   }
 
   public Integer[] allNPos(int x){
@@ -200,7 +206,7 @@ public class DLXPentominoNUZ {
     Integer z[] = new Integer[5];
     if(count < y){
       if((this.n) - 1 == x || (this.n * 2) - 1 == x || (this.n * 3) - 1 == x || (this.n * 4) - 1 == x ||
-          (this.n) - 2 == x || (this.n * 2) - 2 == x || (this.n * 3) - 2 == x || (this.n * 4) - 2 == x ){
+              (this.n) - 2 == x || (this.n * 2) - 2 == x || (this.n * 3) - 2 == x || (this.n * 4) - 2 == x ){
         return null;
       }
       else {
@@ -208,44 +214,46 @@ public class DLXPentominoNUZ {
         z[1] = x + 1;
         z[2] = x + this.n + 1;
         z[3] = x + (this.n * 2) + 1;
-        z[4] = x + (this.n * 2);
+        z[4] = x + (this.n * 2) + 2;
       }
     }
     else  if(count < y * 2){
-      if(0 == x || (this.n) == x || (this.n * 2) == x){
+      if(x <= 1 || (this.n) == x || (this.n * 2) == x || (this.n * 3) == x || (this.n * 4) == x ||
+              (this.n) + 1 == x || (this.n * 2) + 1 == x || (this.n * 3) + 1 == x || (this.n * 4) + 1 == x){
         return null;
       }
       else {
         z[0] = x;
-        z[1] = x + 1;
-        z[2] = x + this.n + 1;
-        z[3] = x + (this.n * 2) + 1;
-        z[4] = x + (this.n * 2);
+        z[1] = x + this.n;
+        z[2] = x + this.n - 1;
+        z[3] = x + this.n - 2;
+        z[4] = x + (this.n * 2) - 2;
       }
     }
     else  if(count < y * 3){
-      if((this.n) - 1 == x || (this.n * 2) - 1 == x || (this.n * 3) - 1 == x || (this.n * 4) - 1 == x ||
-          (this.n) - 2 == x || (this.n * 2) - 2 == x || (this.n * 3) - 2 == x || (this.n * 4) - 2 == x ){
+      if(x <= 1 || (this.n) == x || (this.n * 2) == x || (this.n * 3) == x || (this.n * 4) == x ||
+              (this.n) + 1 == x || (this.n * 2) + 1 == x || (this.n * 3) + 1 == x || (this.n * 4) + 1 == x){
         return null;
       }
       else {
         z[0] = x;
-        z[1] = x + 1;
-        z[2] = x + this.n + 1;
-        z[3] = x + (this.n * 2) + 1;
-        z[4] = x + (this.n * 2);
+        z[1] = x - 1;
+        z[2] = x + this.n - 1;
+        z[3] = x + (this.n * 2) - 1;
+        z[4] = x + (this.n * 2) - 2;
       }
     }
     else  if(count < y * 4){
-      if((this.n) - 1 == x || (this.n * 2) - 1 == x || (this.n * 3) - 1 == x || (this.n * 4) - 1 == x){
+      if((this.n) - 1 == x || (this.n * 2) - 1 == x || (this.n * 3) - 1 == x || (this.n * 4) - 1 == x ||
+              (this.n) - 2 == x || (this.n * 2) - 2 == x || (this.n * 3) - 2 == x || (this.n * 4) - 2 == x ){
         return null;
       }
       else {
         z[0] = x;
-        z[1] = x + 1;
+        z[1] = x + this.n;
         z[2] = x + this.n + 1;
-        z[3] = x + (this.n * 2) + 1;
-        z[4] = x + (this.n * 2);
+        z[3] = x + this.n + 2;
+        z[4] = x + (this.n * 2) + 2;
       }
     }
     for(int i = 0; i < 5; i++){
