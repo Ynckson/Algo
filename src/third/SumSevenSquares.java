@@ -33,6 +33,6 @@ public class SumSevenSquares {
                 }
             }
         }
-        System.out.println("\nEs gibt genau a(" + n + ")= " + count + " Möglichkeiten, wenn n = " + n);    // Ausgabe Lösungen für n
+        System.out.println("\nEs gibt genau a(" + n + ")= " + count + " Moeglichkeiten, wenn n = " + n);    // Ausgabe Lösungen für n
     }
 }
