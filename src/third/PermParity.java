@@ -41,13 +41,6 @@ public class PermParity extends Thread {
 		}
 	}
 
-//	private void perm (){ // permutiere ab Index i
-//		for (int i=0; i <= max; i++){
-//			for (int j=0; j <= max; j++){
-//				arrStr(a);
-//			}
-//		}
-//	} // end perm
 	private void swap(int[] x, int a, int b) {
 		int tmp = x[a];
 		x[a] = x[b];
