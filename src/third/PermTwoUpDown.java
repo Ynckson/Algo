@@ -1,5 +1,9 @@
 package third;
 
+/**
+ * @author Yannick Huber 208827
+ */
+
 import java.util.Scanner;
 
 class PermTwoUpDown extends Thread{
