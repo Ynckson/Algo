@@ -1,7 +1,7 @@
 package third;
 
 /**
- * @author Yannick Huber 208827
+ * @author Yannick Huber 208827, Elias Haag 207389, Leonidas Zissis 212856
  */
 
 import java.util.Scanner;
