@@ -1,10 +1,10 @@
 package third;
 
+import java.util.Scanner;
+
 /**
  * @author Yannick Huber 208827, Elias Haag 207389, Leonidas Zissis 212856
  */
-
-import java.util.Scanner;
 
 class PermTwoUpDown extends Thread{
     private int[] a; // a Arbeitsarray
